@@ -66,7 +66,6 @@
 // export default RegisterPage;
 
 import { useDispatch } from 'react-redux';
-import css from './RegisterPage.module.css';
 import { registerThunk } from 'redux/auth/authThunk';
 import toast from 'react-hot-toast';
 import { Box, Button, TextField } from '@mui/material';

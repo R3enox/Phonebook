@@ -41,7 +41,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectContactsIsLoading } from 'redux/contacts/contactsSelectors';
 import { deleteContactsThunk } from 'redux/contacts/contactsThunk';
 import { openModal } from 'redux/modal/modalSlice';
-import { selectModalIsOpenMoadl } from 'redux/modal/modalSelectors';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton, ListItem, ListItemText } from '@mui/material';

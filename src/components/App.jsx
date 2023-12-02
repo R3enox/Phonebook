@@ -1,6 +1,5 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Layout from './Layout/Layout';
 import { useDispatch } from 'react-redux';
 import { refreshThunk } from '../redux/auth/authThunk';
 import * as ROUTES from '../constans/routes.js';

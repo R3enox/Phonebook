@@ -4,16 +4,20 @@ import { Filter } from 'components/Filter/Filter';
 import { Loader } from 'components/Loader/Loader';
 import { Modal } from 'components/Modal/Modal';
 import { useSelector } from 'react-redux';
-import { selectContactsIsLoading } from 'redux/contacts/contactsSelectors';
+import {
+  selectContacts,
+  selectContactsIsLoading,
+} from 'redux/contacts/contactsSelectors';
 import { selectModalIsOpenMoadl } from 'redux/modal/modalSelectors';
 
 const PhoneBookPage = () => {
   const isLoading = useSelector(selectContactsIsLoading);
   const isOpenModal = useSelector(selectModalIsOpenMoadl);
+  const contacts = useSelector(selectContacts);
   return (
     <>
       <ContactForm />
-      <Filter />
+      {contacts.length !== 0 && <Filter />}
       {isLoading ? <Loader /> : <ContactList />}
       {isOpenModal && <Modal />}
     </>
