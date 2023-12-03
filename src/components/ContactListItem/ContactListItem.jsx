@@ -38,8 +38,14 @@
 // };
 
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContactsIsLoading } from 'redux/contacts/contactsSelectors';
-import { deleteContactsThunk } from 'redux/contacts/contactsThunk';
+import {
+  selectContacts,
+  selectContactsIsLoading,
+} from 'redux/contacts/contactsSelectors';
+import {
+  deleteContactsThunk,
+  fetchContactsThunk,
+} from 'redux/contacts/contactsThunk';
 import { openModal } from 'redux/modal/modalSlice';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -50,7 +56,6 @@ export const ContactListItem = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectContactsIsLoading);
   const items = useSelector(selectFilteredContacts);
-  console.log(items);
   const showContacts = Array.isArray(items) && items.length > 0;
 
   const handleDelte = id => dispatch(deleteContactsThunk(id));

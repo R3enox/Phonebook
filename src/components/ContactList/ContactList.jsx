@@ -21,20 +21,10 @@
 //   );
 // };
 
-import { useDispatch } from 'react-redux';
-import { fetchContactsThunk } from 'redux/contacts/contactsThunk';
-import { useEffect } from 'react';
-
 import { ContactListItem } from 'components/ContactListItem/ContactListItem';
 import List from '@mui/material/List';
 
 export const ContactList = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContactsThunk());
-  }, [dispatch]);
-
   return (
     <List
       sx={{

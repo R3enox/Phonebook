@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { refreshThunk } from '../redux/auth/authThunk';
 import * as ROUTES from '../constans/routes.js';
 import RestrictedRoute from './RestrictedRoute/RestrictedRoute';
@@ -8,9 +8,10 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import { Loader } from './Loader/Loader';
 import { Toaster } from 'react-hot-toast';
 import Layout from './Layout/Layout';
+import { selectAuthToken } from 'redux/auth/authSelectors';
 
-const HomePage = lazy(() => import('../pages/HomePage'));
-const PhoneBook = lazy(() => import('../pages/PhoneBookPage'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const PhoneBook = lazy(() => import('../pages/PhoneBookPage/PhoneBookPage'));
 const LogIn = lazy(() => import('../pages/LogInPage/LogInPage'));
 const Register = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 
@@ -47,10 +48,12 @@ const appRoutes = [
 
 export const App = () => {
   const dispatch = useDispatch();
+  const token = useSelector(selectAuthToken);
 
   useEffect(() => {
+    if (!token) return;
     dispatch(refreshThunk());
-  }, [dispatch]);
+  }, [dispatch, token]);
 
   return (
     <Layout>
