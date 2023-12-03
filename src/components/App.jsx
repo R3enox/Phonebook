@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { refreshThunk } from '../redux/auth/authThunk';
 import * as ROUTES from '../constans/routes.js';
 import RestrictedRoute from './RestrictedRoute/RestrictedRoute';
@@ -8,8 +8,6 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import { Loader } from './Loader/Loader';
 import { Toaster } from 'react-hot-toast';
 import Layout from './Layout/Layout';
-import { selectAuthIsRefreshing } from 'redux/auth/authSelectors';
-import { fetchContactsThunk } from 'redux/contacts/contactsThunk';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const PhoneBook = lazy(() => import('../pages/PhoneBookPage'));
