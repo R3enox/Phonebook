@@ -21,28 +21,24 @@ const handleFulfilled = (state, { payload }) => {
   state.authenticated = true;
   state.token = payload.token;
   state.userData = payload.user;
-  state.isRefreshing = false;
 };
 
 const handleFulfilledRefresh = (state, { payload }) => {
   state.isLoading = false;
-  // state.authenticated = true;
+  state.authenticated = true;
   state.userData = payload;
-  state.isRefreshing = false;
 };
 
 const handleFulfilledLogOut = () => initialState;
 
-const handlePending = state => {
+const handlePending = (state, {payload}) => {
   state.isLoading = true;
   state.error = null;
-  state.isRefreshing = true;
 };
 
 const handleRejected = (state, { payload }) => {
   state.isLoading = false;
   state.error = payload;
-  state.isRefreshing = false;
 };
 
 const initialState = {

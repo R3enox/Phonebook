@@ -50,7 +50,10 @@ export const ContactListItem = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectContactsIsLoading);
   const items = useSelector(selectFilteredContacts);
+  console.log(items);
   const showContacts = Array.isArray(items) && items.length > 0;
+
+  const handleDelte = id => dispatch(deleteContactsThunk(id));
 
   return (
     showContacts &&
@@ -70,7 +73,9 @@ export const ContactListItem = () => {
             <IconButton
               aria-label="comment"
               disabled={isLoading}
-              onClick={() => dispatch(deleteContactsThunk(id))}
+              onClick={() => {
+                handleDelte(id);
+              }}
             >
               <DeleteIcon />
             </IconButton>

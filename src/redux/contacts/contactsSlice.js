@@ -61,7 +61,7 @@ const contactsSlice = createSlice({
         const index = state.contacts.findIndex(
           contact => contact.id === payload.id
         );
-        state.contacts.splice(index, 1, payload);
+        state.contacts = state.contacts.splice(index, 1, payload);
       })
       .addMatcher(isAnyOf(...functionStatus(pending)), handlePending)
       .addMatcher(isAnyOf(...functionStatus(rejected)), handleRejected);

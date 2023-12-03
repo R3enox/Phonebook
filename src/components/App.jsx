@@ -9,6 +9,7 @@ import { Loader } from './Loader/Loader';
 import { Toaster } from 'react-hot-toast';
 import Layout from './Layout/Layout';
 import { selectAuthIsRefreshing } from 'redux/auth/authSelectors';
+import { fetchContactsThunk } from 'redux/contacts/contactsThunk';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const PhoneBook = lazy(() => import('../pages/PhoneBookPage'));
@@ -48,15 +49,12 @@ const appRoutes = [
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isRefreshing = useSelector(selectAuthIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshThunk());
   }, [dispatch]);
 
-  return isRefreshing ? (
-    <p>Refreshing user...</p>
-  ) : (
+  return (
     <Layout>
       <Toaster
         position="top-right"
