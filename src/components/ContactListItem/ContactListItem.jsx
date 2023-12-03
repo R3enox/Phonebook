@@ -38,14 +38,8 @@
 // };
 
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectContacts,
-  selectContactsIsLoading,
-} from 'redux/contacts/contactsSelectors';
-import {
-  deleteContactsThunk,
-  fetchContactsThunk,
-} from 'redux/contacts/contactsThunk';
+import { selectContactsIsLoading } from 'redux/contacts/contactsSelectors';
+import { deleteContactsThunk } from 'redux/contacts/contactsThunk';
 import { openModal } from 'redux/modal/modalSlice';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
