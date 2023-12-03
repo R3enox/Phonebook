@@ -44,10 +44,12 @@ import { openModal } from 'redux/modal/modalSlice';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton, ListItem, ListItemText } from '@mui/material';
+import { selectFilteredContacts } from 'redux/filter/filterSelectors';
 
-export const ContactListItem = ({ items }) => {
+export const ContactListItem = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectContactsIsLoading);
+  const items = useSelector(selectFilteredContacts);
   const showContacts = Array.isArray(items) && items.length > 0;
 
   return (

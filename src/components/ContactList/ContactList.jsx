@@ -21,16 +21,15 @@
 //   );
 // };
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchContactsThunk } from 'redux/contacts/contactsThunk';
 import { useEffect } from 'react';
-import { selectFilteredContacts } from 'redux/filter/filterSelectors';
+
 import { ContactListItem } from 'components/ContactListItem/ContactListItem';
 import List from '@mui/material/List';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-  const items = useSelector(selectFilteredContacts);
 
   useEffect(() => {
     dispatch(fetchContactsThunk());
@@ -46,7 +45,7 @@ export const ContactList = () => {
         marginLeft: 'auto',
       }}
     >
-      <ContactListItem items={items} />
+      <ContactListItem />
     </List>
   );
 };
