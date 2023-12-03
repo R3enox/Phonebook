@@ -9,7 +9,6 @@ import { Loader } from './Loader/Loader';
 import { Toaster } from 'react-hot-toast';
 import Layout from './Layout/Layout';
 import { selectAuthIsRefreshing } from 'redux/auth/authSelectors';
-import { fetchContactsThunk } from 'redux/contacts/contactsThunk';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const PhoneBook = lazy(() => import('../pages/PhoneBookPage'));
